@@ -1,0 +1,35 @@
+# Visual Studio / .NET
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+*.exe
+*.dll
+*.pdb
+*.runtimeconfig.json
+*.deps.json
+
+# NuGet
+*.nupkg
+packages/
+
+# Rider / IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs and temp
+*.log
+*.tmp
+
+# Optional: user secrets
+secrets.json
+.env

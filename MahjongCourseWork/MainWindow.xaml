@@ -1,0 +1,124 @@
+﻿<Window x:Class="MahjongCourseWork.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Mahjong Solitaire"
+        Height="720"
+        Width="1200"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize">
+
+    <DockPanel Background="#F4F1EA">
+
+        <Menu DockPanel.Dock="Top" Background="#E8E0D1" FontSize="14">
+            <MenuItem Header="Гра">
+                <MenuItem Header="Нова гра" Click="NewGame_Click"/>
+                <MenuItem Header="Перезапуск" Click="Restart_Click"/>
+                <Separator/>
+                <MenuItem Header="Розкладка">
+                    <MenuItem Header="Класична" Click="ClassicLayout_Click"/>
+                    <MenuItem Header="Фортеця" Click="FortressLayout_Click"/>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Вихід" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Хід">
+                <MenuItem Header="Відміна" Click="Undo_Click"/>
+                <MenuItem Header="Повтор" Click="Redo_Click"/>
+            </MenuItem>
+            <MenuItem Header="Довідка">
+                <MenuItem Header="Правила" Click="Rules_Click"/>
+                <MenuItem Header="Про програму" Click="About_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <StatusBar DockPanel.Dock="Bottom" Background="#E8E0D1">
+            <StatusBarItem>
+                <TextBlock x:Name="StatusTextBlock" Text="Готово до старту гри"/>
+            </StatusBarItem>
+        </StatusBar>
+
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0"
+                    Background="#DDD3C3"
+                    CornerRadius="8"
+                    Padding="10"
+                    Margin="0,0,0,10">
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="NewGameButton"
+                            Content="Нова гра"
+                            Width="110"
+                            Height="36"
+                            Margin="0,0,10,0"
+                            Click="NewGame_Click"/>
+
+                    <Button x:Name="HintButton"
+                            Content="Підказка"
+                            Width="110"
+                            Height="36"
+                            Margin="0,0,10,0"
+                            Click="Hint_Click"/>
+
+                    <Button x:Name="ShuffleButton"
+                            Content="Перемішати"
+                            Width="110"
+                            Height="36"
+                            Margin="0,0,20,0"
+                            Click="Shuffle_Click"/>
+
+                    <Button x:Name="UndoButton"
+                            Content="Відміна"
+                            Width="110"
+                            Height="36"
+                            Margin="0,0,20,0"
+                            Click="Undo_Click"/>
+
+                    <TextBlock Text="Час:"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Margin="0,0,8,0"/>
+                    <TextBlock x:Name="TimerTextBlock"
+                               Text="00:00"
+                               VerticalAlignment="Center"
+                               Margin="0,0,20,0"/>
+
+                    <TextBlock Text="Ходи:"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Margin="0,0,8,0"/>
+                    <TextBlock x:Name="MovesTextBlock"
+                               Text="0"
+                               VerticalAlignment="Center"
+                               Margin="0,0,20,0"/>
+
+                    <TextBlock Text="Доступні пари:"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Margin="0,0,8,0"/>
+                    <TextBlock x:Name="AvailablePairsTextBlock"
+                               Text="0"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="1"
+        Background="#8F6B2E"
+        CornerRadius="10"
+        Padding="12">
+                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Disabled">
+                    <UniformGrid x:Name="GameBoard"
+                     Rows="6"
+                     Columns="8"/>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>
